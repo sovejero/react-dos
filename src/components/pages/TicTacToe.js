@@ -32,7 +32,7 @@ const Square = ({ value, onClick = () => { } }) => {
   );
 };
 Square.propTypes = {
-  value: PropTypes.oneOf(["X", "O", ""]),
+  value: PropTypes.oneOf(["X", "O", null]),
   onClick: PropTypes.func,
 };
 
