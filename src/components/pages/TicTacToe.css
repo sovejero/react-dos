@@ -42,5 +42,14 @@
 
 .winner-card--hidden {
   opacity: 0;
+  display: none;
   pointer-events: none;
+}
+
+.board {
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 1em;
 }
