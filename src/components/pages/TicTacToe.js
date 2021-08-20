@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import "./TicTacToe.css";
@@ -85,19 +85,14 @@ const useTicTacToeGameState = initialPlayer => {
   const winner = getWinner(tiles);
   const gameEnded = !tiles.includes(null) || winner !== null;
 
-  useEffect(() => {
-    const changePLayer = () => {
-      currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X");
-    };
-    changePLayer();
-  }, [tiles]);
-
   const setTileTo = tileIndex => {
     if (tiles[tileIndex] !== null) {
       return;
     }
 
     setTiles(prevTiles => prevTiles.map((tile, index) => (index === tileIndex ? currentPlayer : tile)));
+
+    setCurrentPlayer(prevPlayer => prevPlayer === "X" ? "O" : "X");
     // convertir el tile en la posición tileIndex al jugador seleccionado
     // ejemplo: setTileTo(0, 'X') -> convierte la primera casilla en 'X'
   };
